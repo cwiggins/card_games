@@ -4,11 +4,9 @@ index = 'y'
 while index != 'n':
 	deck = create_deck()
 	#print deck
-	card_1 = deal_hand(deck)
-	card_2 = deal_hand(deck)
+	hand = deal_hand(deck)
 	#print card_1, card_2
-	card_1_score = hand_score(card_1)
-	card_2_score = hand_score(card_2)
+	score = hand_score(hand)
 	card_1_suit = determine_suit(card_1)
 	card_2_suit = determine_suit(card_2)
 	card_1_face = determine_face(card_1)

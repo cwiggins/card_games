@@ -26,7 +26,7 @@ def check_deck(card, deck, pindex):
 	return ce;
 
 
-def deal_hand(deck):
+def deal_card(deck):
 	index = 0
 	dealt_card = 0
 	if deck[0] == 0:
@@ -42,8 +42,21 @@ def deal_hand(deck):
 		deck[0] = 0
 	return dealt_card;
 
-def hand_score(card):
-	return get_value(card);
+def deal_hand(deck):
+	index = 1
+	hand = array.array('i', [deal_card(deck)])
+	while index < 2:
+		hand.append(deal_card(deck))
+		index += 1
+	return hand;
+
+def hand_score(hand):
+	score = array.array('i', [get_value(hand[0])])
+	index = 1
+	while index < 2:
+		score.append(get_value(hand[index]))
+		index += 1
+	return score;
 
 def get_value(card):
 	real_value = card % 13
