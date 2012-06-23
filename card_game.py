@@ -12,7 +12,7 @@ while index != 'n':
 	print suit
 	face = determine_face(hand)
 	print face
-	print_results(hand, score, suit, face)
+	#print_results(hand, score, suit, face)
 
 	print "do you want to play again"
 	choice = raw_input("> ")

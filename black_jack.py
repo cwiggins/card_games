@@ -113,7 +113,3 @@ def determine_face(hand):
 			index += 1
 	return face;
 
-def print_results(hand, score, suit, face):
-	index = 0
-	while index < 2:
-
