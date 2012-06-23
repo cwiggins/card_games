@@ -72,29 +72,48 @@ def get_value(card):
 
 
 
-def determine_suit(card):
-	suit = ""
-	if card >= 1 and card <= 13:
-		suit = "Hearts"
-	elif card >= 14 and card <=26:
-		suit = "Spades"
-	elif card >= 27 and card <= 39:
-		suit = "Clubs"
-	else:
-		suit = "Diamonds"
+def determine_suit(hand):
+	suit = []
+	index = 0
+	while index < 2:
+		if hand[index] >= 1 and hand[index] <= 13:
+			suit.append("Hearts")
+			index += 1
+		elif hand[index] >= 14 and hand[index] <= 26:
+			suit.append("Clubs")
+			index += 1
+		elif hand[index] >= 27 and hand[index] <= 39:
+			suit.append("Spades")
+			index += 1
+		else:
+			suit.append("Diamonds")
+			index += 1
 	return suit;
 
-def determine_face(card):
-	face = card % 13
-	if face == 0 or face == 10 or face == 11 or face == 12:
-		if face == 0:
-			return "Ace";
-		elif face == 10:
-			return "Jack";
-		elif face == 11:
-			return "Queen";
+def determine_face(hand):
+	face = []
+	index = 0
+	while index < 2:
+		card = hand[index] % 13
+		if card == 0 or card == 10 or card == 11 or card == 12:
+			if card == 0:
+				face.append("Ace")
+				index += 1
+			elif card == 10:
+				face.append("Jack")
+				index += 1
+			elif card == 11:
+				face.append("Queen")
+				index += 1
+			else:
+				face.append("King")
+				index += 1
 		else:
-			return "King";
-	else:
-		return face + 1;
+			face.append(card + 1)
+			index += 1
+	return face;
+
+def print_results(hand, score, suit, face):
+	index = 0
+	while index < 2:
 
