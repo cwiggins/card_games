@@ -48,6 +48,7 @@ def deal_hand(deck):
 	while index < 2:
 		hand.append(deal_card(deck))
 		index += 1
+	hand.append(0);
 	return hand;
 
 def hand_score(hand):
@@ -112,4 +113,19 @@ def determine_face(hand):
 			face.append(card + 1)
 			index += 1
 	return face;
+
+def hand_size(hand):
+	index = 0;
+	while hand[index] != 0:
+		index += 1
+	return index;
+
+def print_results(hand, face, suit, score):
+	index = 0
+	print "You have won with a score of"
+	final_score = 0
+	while index < hand_size(hand):
+		final_score += score[index]
+		index += 1
+	print final_score
 
